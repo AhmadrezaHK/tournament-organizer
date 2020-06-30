@@ -1,0 +1,20 @@
+{
+    findTournamentsByString(count: 18, offset: 0, fieldName: "platform", fieldData: "default") {
+        game {
+            id
+            name
+        }
+        unlisted
+        name
+        description
+        id
+        teamSize
+        maxTeams
+        participantIds
+        tournamentStatus
+        coverImage
+        thumbnail
+        deadline
+        createdAt
+    }
+}
