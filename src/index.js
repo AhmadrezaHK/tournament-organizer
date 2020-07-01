@@ -10,7 +10,7 @@ import { loader } from "graphql.macro";
 import Loading from 'components/Loading'
 
 const client = new ApolloClient({
-    uri: "https://web.devk8s.daory.net/graphql",
+    uri: "",
 });
 
 const tournamentsQuery = loader("./queries/tournamentsQuery.gql");
