@@ -1,8 +1,9 @@
 import React, { useState, useEffect, Fragment } from "react";
 import TournamentCard from "components/TournamentCard";
 import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
+import Box from "@material-ui/core/Box";
 import { useMqProperty } from "hooks";
+import "./index.scss";
 
 export default function TournamentList({ tournaments }) {
     const [tournamentListData, setTournamentListData] = useState();
@@ -30,25 +31,33 @@ export default function TournamentList({ tournaments }) {
             );
     }, [tournaments]);
 
-    const spacing = useMqProperty({ xs: 2, sm: 1, md: 3, lg: 6, xl: 8 });
+    const spacing = useMqProperty({ xs: 6, sm: 6, md: 6, lg: 6, xl: 8 });
 
     return (
-        <>
+        <Box pb="4rem">
             {tournamentTypes.map((type) => (
                 <Fragment key={type.key}>
-                    <h1 align="center">{type.title}</h1>
-                    <Container maxWidth="lg">
-                        <Grid container justify="center" spacing={spacing}>
-                            {tournamentListData &&
-                                tournamentListData[type.key].map((record) => (
-                                    <Grid item md={3} sm={4} xs={12} key={record.id}>
-                                        <TournamentCard tournament={record} />
-                                    </Grid>
-                                ))}
+                    <Box py="2rem">
+                        <h1 align="center" className="card-category-heading">
+                            {type.title}
+                        </h1>
+                    </Box>
+                    <Box pt="1rem" pb="2rem">
+                        <Grid container justify="center">
+                            <Grid item xs={12} md={8} lg={7} sm={10}>
+                                <Grid container spacing={spacing} justify="center">
+                                    {tournamentListData &&
+                                        tournamentListData[type.key].map((record) => (
+                                            <Grid item lg={4} md={6} sm={6} xs={9} key={record.id} className="card-container">
+                                                <TournamentCard tournament={record} />
+                                            </Grid>
+                                        ))}
+                                </Grid>
+                            </Grid>
                         </Grid>
-                    </Container>
+                    </Box>
                 </Fragment>
             ))}
-        </>
+        </Box>
     );
 }

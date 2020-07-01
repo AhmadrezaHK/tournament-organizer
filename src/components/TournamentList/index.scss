@@ -1,0 +1,11 @@
+.card-container {
+    width: 300px;
+    flex-basis: auto !important;
+}
+.card-category-heading {
+    font-size: 3.5rem;
+    @media (max-width:600px) {
+        font-size: 2rem;
+        
+    }
+}
