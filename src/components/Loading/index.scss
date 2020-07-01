@@ -1,0 +1,27 @@
+$donutColor: red;
+.donut-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    .donut {
+        width: 2rem;
+        height: 2rem;
+        margin: 2rem;
+        border-radius: 50%;
+        border: 0.3rem solid rgba($donutColor, 0.3);
+        border-top-color: $donutColor;
+        animation: 1s spin infinite linear;
+
+        &.multi {
+            border-bottom-color: $donutColor;
+        }
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
